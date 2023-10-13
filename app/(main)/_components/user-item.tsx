@@ -8,13 +8,13 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-const UserItem = () => {
+export const UserItem = () => {
   const { user } = useUser()
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -67,5 +67,3 @@ const UserItem = () => {
     </DropdownMenu>
   )
 }
-
-export default UserItem
