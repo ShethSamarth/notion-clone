@@ -17,6 +17,8 @@ import {
 
 import { cn } from "@/lib/utils"
 import { api } from "@/convex/_generated/api"
+import { useSearch } from "@/hooks/use-search"
+import { useSettings } from "@/hooks/use-settings"
 import {
   Popover,
   PopoverContent,
@@ -30,6 +32,8 @@ import { DocumentList } from "./document-list"
 
 export const Navigation = () => {
   const router = useRouter()
+  const search = useSearch()
+  const settings = useSettings()
   const pathname = usePathname()
   const isMobile = useMediaQuery("(max-width: 768px)")
   const create = useMutation(api.documents.create)
@@ -146,8 +150,8 @@ export const Navigation = () => {
         </div>
         <div>
           <UserItem />
-          <Item label="Search" icon={Search} isSearch onClick={() => {}} />
-          <Item label="Settings" icon={Settings} onClick={() => {}} />
+          <Item label="Search" icon={Search} isSearch onClick={search.onOpen} />
+          <Item label="Settings" icon={Settings} onClick={settings.onOpen} />
           <Item label="New page" icon={PlusCircle} onClick={handleCreate} />
         </div>
         <div className="mt-4">
